@@ -1,12 +1,10 @@
 package com.e2eTest.automation.step_definitions;
 
-import org.openqa.selenium.By;
 
 import com.e2eTest.automation.page_objects.CustomersPage;
 import com.e2eTest.automation.utils.ConfigFileReader;
 import com.e2eTest.automation.utils.SelectFromListUtils;
 import com.e2eTest.automation.utils.SeleniumUtils;
-import com.e2eTest.automation.utils.Setup;
 import com.e2eTest.automation.utils.Validations;
 
 import io.cucumber.java.en.Then;

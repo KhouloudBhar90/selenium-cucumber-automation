@@ -55,7 +55,7 @@ public class AuthetificationStepDefinition {
 	}
 	@Then("Je me redirige vers la page d authentification {string}")
 	public void jeMeRedirigeVersLaPageDAuthentification(String title) {
-		validation.assertEquals(AuthentificationPage.titlePage, title);
+		validation.assertEquals(AuthentificationPage.titlePage2, title);
 	}
 
 }

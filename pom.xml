@@ -26,13 +26,14 @@
 		<webdrivermanager.version>5.1.1</webdrivermanager.version>
 		<seleniumclient.version>4.8.1</seleniumclient.version>
 		<apachepoi.version>3.13</apachepoi.version>
+		<json.version>1.1.1</json.version>
 	</properties>
 	<dependencies>
 		<dependency>
-		<groupId>org.apache.poi</groupId>
-		<artifactId>poi-ooxml</artifactId>
-		<version>${apachepoi.version}</version>
-	</dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${apachepoi.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
@@ -104,6 +105,11 @@
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
 			<version>${webdrivermanager.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>${json.version}</version>
 		</dependency>
 	</dependencies>
 	<build>

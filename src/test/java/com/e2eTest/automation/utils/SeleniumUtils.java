@@ -1,6 +1,7 @@
 package com.e2eTest.automation.utils;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -11,6 +12,11 @@ import java.util.Properties;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -21,6 +27,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 /**
  * This class contains all the methods required by selenium to perform actions
@@ -119,6 +126,17 @@ public class SeleniumUtils extends BasePage {
 	public void clickOnElementUsingJs(By element) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		WebElement webElement = driver.findElement(element);
+		jsExecutor.executeScript("arguments[0].click();", webElement);
+	}
+
+	/**
+	 * method to click on an element using javascript with WE.
+	 *
+	 * @param element to be clicked
+	 */
+	public void clickOnElementUsingJs(WebElement element) {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		WebElement webElement = element;
 		jsExecutor.executeScript("arguments[0].click();", webElement);
 	}
 
@@ -341,6 +359,22 @@ public class SeleniumUtils extends BasePage {
 		driver.switchTo().frame(iframeId);
 		return driver.switchTo().activeElement();
 	}
+	
+	/**
+	 *  method to return to the default frame.
+	 *
+	 */
+	public void switchToDefaultFrame() {
+		driver.switchTo().defaultContent();
+	}
+
+	/**
+	 *  method to return to the parent frame.
+	 *
+	 */
+	public void switchToParentFrame() {
+		driver.switchTo().parentFrame();
+	}
 
 	/**
 	 * methode Check radio.
@@ -452,6 +486,30 @@ public class SeleniumUtils extends BasePage {
 	public static String decoderString(String encodedStr) {
 		byte[] decoderString = Base64.getDecoder().decode(encodedStr.getBytes());
 		return (new String(decoderString));
+	}
+
+	public JSONObject JsonData(int i) {
+
+		JSONParser parser = new JSONParser();
+
+		try {
+			Object obj = parser.parse(new FileReader("./src/test/resources/configs/waitConfig.json"));
+
+			JSONArray array = (JSONArray) obj;
+			JSONObject jsonObject = (JSONObject) array.get(i);
+
+			return jsonObject;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null;
+		}
+
 	}
 
 }
