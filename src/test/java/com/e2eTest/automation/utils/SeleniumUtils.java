@@ -224,7 +224,7 @@ public class SeleniumUtils extends BasePage {
 	 * @param locator
 	 */
 	public void waitForElementToBeClickable(By locator) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
@@ -332,11 +332,11 @@ public class SeleniumUtils extends BasePage {
 	 * @param textToSelect
 	 * @throws InterruptedException the interrupted exception
 	 */
-	public void autoSuggest(WebElement elementWeb, String writeText, String textToSelect) throws InterruptedException {
+	public void autoSuggest(WebElement elementWeb, String writeText, String textToSelect) throws InterruptedException  {
 		// start input in input field
 		elementWeb.sendKeys(writeText);
-		//Thread.sleep(3000);
-		waitForElementToBeClickable(elementWeb);
+		Thread.sleep(3000);
+		//waitForElementToBeClickable(elementWeb);
 		// get the list of suggestet inputs
 		List<WebElement> options = driver.findElements(By.tagName("li"));
 		// loop through list of inputs an click specific Text + break out the loop

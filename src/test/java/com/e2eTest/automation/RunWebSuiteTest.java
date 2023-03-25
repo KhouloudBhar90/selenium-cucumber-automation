@@ -21,7 +21,7 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.CAMELCASE;
 		/* "pretty" is used to get format "html:" location and name of report file */
 		plugin = {"pretty", "html:target/cucumber-report.html", "json:target/cucumber-report.json"},
 		// the test case which you want to execute */
-		tags = ("@Vendors"),
+		tags = ("@customers"),
 		/* Location of code */
 		// glue = {},
 		/* To have a lisible test in the console */
