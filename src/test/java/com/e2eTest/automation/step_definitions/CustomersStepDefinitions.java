@@ -3,6 +3,7 @@ package com.e2eTest.automation.step_definitions;
 
 import com.e2eTest.automation.page_objects.CustomersPage;
 import com.e2eTest.automation.utils.ConfigFileReader;
+import com.e2eTest.automation.utils.DateUtil;
 import com.e2eTest.automation.utils.SelectFromListUtils;
 import com.e2eTest.automation.utils.SeleniumUtils;
 import com.e2eTest.automation.utils.Validations;
@@ -17,6 +18,7 @@ public class CustomersStepDefinitions {
 	public ConfigFileReader configFileReader;
 	public Validations validation;
 	public SelectFromListUtils selectFromListUtils;
+	public DateUtil dateUtil;
 
 	public CustomersStepDefinitions() {
 		customerspage = new CustomersPage();
@@ -24,6 +26,8 @@ public class CustomersStepDefinitions {
 		validation = new Validations();
 		configFileReader = new ConfigFileReader();
 		selectFromListUtils = new SelectFromListUtils();
+		dateUtil = new DateUtil();
+
 	}
 
 	@When("Je clique sur le bouton Customers")
@@ -41,9 +45,9 @@ public class CustomersStepDefinitions {
 		seleniumUtils.click(customerspage.getCustomerWrappedElement(customerspage.getAddNewBtn()));
 	}
 
-	@When("Je saisis l email de formulaire Customers {string}")
-	public void jeSaisisLEmailDeFormulaireCustomers(String email) {
-		seleniumUtils.writeText(customerspage.getCustomerWrappedElement(customerspage.getEmail()), email);
+	@When("Je saisis l email de formulaire Customers")
+	public void jeSaisisLEmailDeFormulaireCustomers() {
+		seleniumUtils.writeText(customerspage.getCustomerWrappedElement(customerspage.getEmail()), seleniumUtils.getSaltString()+"@gmail.com");
 	}
 
 	@When("Je saisis le Password de formulaire Customers {string}")
@@ -68,9 +72,9 @@ public class CustomersStepDefinitions {
 		seleniumUtils.click(customerspage.getCustomerWrappedElement(customerspage.getGenderFemale()));
 	}
 
-	@When("Je saisis la date de naissance de customers {string}")
-	public void jeSaisisLaDateDeNaissanceDeCustomers(String date) {
-		seleniumUtils.writeText(customerspage.getCustomerWrappedElement(customerspage.getDateOfBirth()), date);
+	@When("Je saisis la date de naissance de customers")
+	public void jeSaisisLaDateDeNaissanceDeCustomers() {
+		seleniumUtils.writeText(customerspage.getCustomerWrappedElement(customerspage.getDateOfBirth()), DateUtil.getDateInJava());
 	}
 
 	@When("Je choisis le nom de l entreprise {string}")

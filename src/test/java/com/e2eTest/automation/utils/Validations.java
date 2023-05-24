@@ -196,5 +196,14 @@ public class Validations extends BasePage {
 		Assert.assertTrue(text1.contains(text));
 	}
 
+	   /**
+     * Assert command for checking the url in selenium webdriver
+     * @param string URL
+     */
+    public void checkChangedURL(String expectedURL)
+    {
+    	String URL = driver.getCurrentUrl();
+    	Assert.assertEquals(URL, expectedURL);
+    }
 
 }

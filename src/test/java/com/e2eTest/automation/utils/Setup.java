@@ -43,6 +43,7 @@ public class Setup {
 			driver = new ChromeDriver(chromeOptions);
 			driver.manage().window().maximize();
 			chromeOptions.addArguments("['start-maximized']");
+			//chromeOptions.addArguments("--remote-allow-origins=*");
 			break;
 		case "firefox":
 			System.setProperty("webdriver.gecko.driver", "src/test/resources/drivers/win/geckodriver.exe");

@@ -11,6 +11,8 @@ public class CustomersPage {
 
 	/* Retrieve Element of customer form*/
 
+	// final static customersBtn = "//a[@href='/Admin/Customer/List']//p[contains(text(),'Customers')]";
+	
 	private WebDriver driver = Setup.getDriver();
 	private By customersIcon = By.xpath("//a[@href='#']//p[contains(text(),'Customers')]");
 	private By customersBtn = By.xpath("//a[@href='/Admin/Customer/List']//p[contains(text(),'Customers')]");

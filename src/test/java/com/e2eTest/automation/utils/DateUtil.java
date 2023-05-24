@@ -41,7 +41,7 @@ public class DateUtil extends BasePage {
 	// Get The Date in Java
 	public static String getDateInJava() {
 		// Create object of SimpleDateFormat class and decide the format
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy ");
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
 
 		// get current date time with Date()
 		Date date = new Date();

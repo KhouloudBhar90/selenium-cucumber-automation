@@ -30,7 +30,7 @@ public class ConfigFileReader {
 
 		} catch (FileNotFoundException e) {
 			System.out.println("Exception: ," + e);
-			throw new RuntimeException("Configuration.propertiesnot found at " + propertyFilePath);
+			throw new RuntimeException("Configuration.properties not found at " + propertyFilePath);
 		} finally {
 			// this block will be executed in every case, success or caught exception
 			if (reader != null) {
@@ -54,7 +54,7 @@ public class ConfigFileReader {
 		if (driverPath != null)
 			return driverPath;
 		else
-			throw new RuntimeException("driverPath not specified in the Configuration.properties file.");
+			throw new RuntimeException("driver Path not specified in the Configuration.properties file.");
 
 	}
 
